@@ -1,0 +1,32 @@
+<?php
+defined('BASEPATH') or exit('No direct script access allowed');
+
+class Value extends CI_Controller
+{
+    public function sensor()
+    {
+        if (isset($_GET['lat'], $_GET['lng'], $_GET['speed'], $_GET['orang'], $_GET['ppm'], $_GET['bus'])) {
+            $lat = $this->input->get('lat');
+            $lng = $this->input->get('lng');
+            $speed = $this->input->get('speed');
+            $penumpang = $this->input->get('orang');
+            $ppm = $this->input->get('ppm');
+            $bus = $this->input->get('bus');
+
+            $datasensor = array(
+                'locationLatitude' => $lat,
+                'locationLongitude' => $lng,
+                'speed' => $speed,
+                'jumlahPenumpang' => $penumpang,
+                'ppm' => $ppm
+            );
+            if ($this->Ambil_model->save($datasensor, $bus)) {
+                echo "Berhasil";
+            } else {
+                echo "Gagal";
+            }
+        } else {
+            echo "Tidak ada data yang dikirimkan";
+        }
+    }
+}

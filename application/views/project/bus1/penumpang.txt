@@ -1,0 +1,23 @@
+<div class="col-md-3">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Jumlah Penumpang</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php //untuk nomor urut
+                    $i = 1; ?>
+                    <?php foreach ($penumpang as $p) : ?>
+                        <tr>
+                            <!-- <th scope="row"><?= $i; ?></th> -->
+                            <td>
+                                <?= $p['jumlahPenumpang']; ?>
+                            </td>
+                        </tr>
+                        <?php //utk nomor urut
+                        $i++; ?>
+                    <?php endforeach; ?>
+            </table>
+
+        </div>
